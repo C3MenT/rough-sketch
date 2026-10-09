@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://lp837ophqhbk"]
+
+[ext_resource type="PackedScene" uid="uid://hdtyrp8d8h2p" path="res://resource/entity/mob/mob.tscn" id="1_ltfj7"]
+[ext_resource type="Script" uid="uid://c26cjkmk8v36x" path="res://resource/entity/mob/player/player.gd" id="2_soln0"]
+[ext_resource type="Texture2D" uid="uid://d05mslkaorx7c" path="res://resource/assets/sprite/mob/player/trongle.png" id="3_wr84r"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_vl7qt"]
+points = PackedVector2Array(30, 9, -29, 15, -3, -31)
+
+[node name="Player" unique_id=1837744156 instance=ExtResource("1_ltfj7")]
+collision_layer = 4
+script = ExtResource("2_soln0")
+MAX_SPEED = 500.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1197325771]
+shape = SubResource("ConvexPolygonShape2D_vl7qt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(729977157) index="0" unique_id=809418151]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_wr84r")
+
+[node name="Hurtbox" parent="Model" parent_id_path=PackedInt32Array(1402979901) index="0" unique_id=200719921]
+collision_layer = 16
+collision_mask = 72

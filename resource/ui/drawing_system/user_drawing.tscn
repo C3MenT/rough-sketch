@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bhrxgvax7mmbh"]
+
+[ext_resource type="Script" uid="uid://chgmdv683kpg5" path="res://resource/ui/drawing_system/user_drawing.gd" id="1_4us05"]
+[ext_resource type="PackedScene" uid="uid://cks6wgy7m8s42" path="res://resource/ui/drawing_system/draw_canvas.tscn" id="2_d3qfe"]
+
+[node name="UserDrawing" type="Control" unique_id=216552393 node_paths=PackedStringArray("draw_canvas")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4us05")
+draw_canvas = NodePath("Canvas")
+
+[node name="Canvas" parent="." unique_id=1119887157 instance=ExtResource("2_d3qfe")]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cks6wgy7m8s42"]
+
+[ext_resource type="Script" uid="uid://cx7e65q2l3eho" path="res://resource/ui/drawing_system/draw_canvas.gd" id="1_nptlj"]
+
+[node name="Canvas" type="Node2D" unique_id=604262917 node_paths=PackedStringArray("draw_lines", "draw_cursor", "background")]
+script = ExtResource("1_nptlj")
+draw_lines = NodePath("Lines")
+draw_cursor = NodePath("Cursor")
+background = NodePath("Background")
+
+[node name="Background" type="Polygon2D" parent="." unique_id=1430979193]
+
+[node name="Lines" type="Node2D" parent="." unique_id=951984677]
+
+[node name="Cursor" type="Node2D" parent="." unique_id=1897277023]
+visible = false
+
+[node name="CursorShape" type="Polygon2D" parent="Cursor" unique_id=1381815305]
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(4, 0, 0, 4, -4, 0, 0, -4)
+uv = PackedVector2Array(394.66702, -20)

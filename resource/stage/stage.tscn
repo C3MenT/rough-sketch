@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b442l7grjf7v5"]
+
+[ext_resource type="PackedScene" uid="uid://ju8rhpgs86w" path="res://resource/stage/stage_piece.tscn" id="1_r6f3o"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vl7qt"]
+
+[node name="Stage" type="Node" unique_id=454290637]
+
+[node name="Model" type="Node2D" parent="." unique_id=1956990051]
+
+[node name="StagePieces" type="Node2D" parent="Model" unique_id=1642802859]
+
+[node name="StagePiece" parent="Model/StagePieces" unique_id=2088276741 instance=ExtResource("1_r6f3o")]
+
+[node name="Boundary" type="StaticBody2D" parent="Model" unique_id=1664511909]
+collision_mask = 0
+
+[node name="Top" type="CollisionShape2D" parent="Model/Boundary" unique_id=1615425916]
+rotation = -3.1415927
+shape = SubResource("WorldBoundaryShape2D_vl7qt")
+
+[node name="Bottom" type="CollisionShape2D" parent="Model/Boundary" unique_id=623852942]
+position = Vector2(0, 720)
+shape = SubResource("WorldBoundaryShape2D_vl7qt")
+
+[node name="Left" type="CollisionShape2D" parent="Model/Boundary" unique_id=434000731]
+rotation = -4.712389
+shape = SubResource("WorldBoundaryShape2D_vl7qt")
+
+[node name="Right" type="CollisionShape2D" parent="Model/Boundary" unique_id=1720661192]
+position = Vector2(1280, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_vl7qt")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://hdtyrp8d8h2p"]
+
+[ext_resource type="Script" uid="uid://o5m258nqpy1v" path="res://resource/entity/mob/mob.gd" id="1_v2vp8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n5odq"]
+
+[node name="Mob" type="CharacterBody2D" unique_id=1837744156]
+collision_mask = 15
+script = ExtResource("1_v2vp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1197325771]
+shape = SubResource("CircleShape2D_n5odq")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=729977157]
+
+[node name="Model" type="Node2D" parent="." unique_id=1402979901]
+
+[node name="Hurtbox" type="Area2D" parent="Model" unique_id=200719921]
+collision_layer = 0
+collision_mask = 0

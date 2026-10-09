@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cbtpvedqqayjp"]
+
+[ext_resource type="PackedScene" uid="uid://con3bw1mujh71" path="res://resource/entity/mob/enemy/enemy.tscn" id="1_8jncc"]
+[ext_resource type="Texture2D" uid="uid://bf5k8kyk6jq3k" path="res://resource/assets/sprite/mob/enemy/Anemy.png" id="2_liste"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_l0wmn"]
+points = PackedVector2Array(44, 56, -48, 58, 1, -68)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vl7qt"]
+radius = 41.0
+height = 132.0
+
+[node name="AAAAA" unique_id=1837744156 instance=ExtResource("1_8jncc")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1197325771]
+shape = SubResource("ConvexPolygonShape2D_l0wmn")
+
+[node name="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(729977157) index="0" unique_id=718268473]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_liste")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Model/Hurtbox" parent_id_path=PackedInt32Array(200719921) index="0" unique_id=121195154]
+shape = SubResource("CapsuleShape2D_vl7qt")
+debug_color = Color(0.3416949, 0.6214218, 0, 0.41960785)
