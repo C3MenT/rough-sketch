@@ -14,4 +14,4 @@ offset = Vector2(640, 360)
 [node name="Model" type="Node2D" parent="." unique_id=1243367797]
 
 [node name="Player" parent="Model" unique_id=1837744156 instance=ExtResource("2_ipr76")]
-position = Vector2(281, 191)
+position = Vector2(652, 647)

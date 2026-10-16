@@ -14,8 +14,24 @@ not the other way around.
 
 ## Current velocity vector
 var velocity : Vector2 = Vector2.ZERO
-## Array of all overlapping hurtboxes
-var overlappings : Array = []
+## Current acceleration
+var acceleration : float = 0.0
+## Current max speed
+var maxSpeed : float = 0.0
+## Current direction to move in
+var direction : Vector2 = Vector2.ZERO
+
+### ============================================================================
+### Core Drivers
+### ============================================================================
+
+
+func _physics_process(delta: float) -> void:
+	_update(delta)
+
+## Core projectile update function
+func _update(delta : float)->void:
+	_update_move(delta)
 
 ### ============================================================================
 ### Helpers
@@ -25,20 +41,17 @@ var overlappings : Array = []
 func get_velocity()->Vector2:
 	return velocity
 
-func move(delta : float)->void:
+## Update position based on velocity
+func _update_move(delta : float)->void:
+	if maxSpeed <= 0:
+		printerr("Max speed is less than or equal 0")
+		
+	velocity = velocity.slerp(direction * maxSpeed, acceleration * delta)
 	global_position += (velocity * delta)
 	
-## Returns whether or not the list of overlapping entities is empty
-func is_colliding()->bool:
-	return !overlappings.is_empty()
-
-## Returns the overlapping entities
-func get_colliding()->Array:
-	return overlappings
-
-
-
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	overlappings.append(area)
-func _on_hitbox_area_exited(area: Area2D) -> void:
-	overlappings.erase(area)
+## Give the projectile a direction on the unit circle
+func set_movement_data(dir : Vector2, max_speed : float, accel : float)->void:
+	maxSpeed = max_speed
+	direction = dir
+	acceleration = accel
+	

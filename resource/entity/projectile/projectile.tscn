@@ -2,16 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dclk576sajrlq" path="res://resource/entity/projectile/projectile.gd" id="1_ukueo"]
 
-[node name="Projectile" type="Node2D" unique_id=350827401]
+[node name="Projectile" type="StaticBody2D" unique_id=762143362]
 script = ExtResource("1_ukueo")
 
 [node name="Visual" type="Node2D" parent="." unique_id=1102890566]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" unique_id=1747953102]
 
 [node name="Model" type="Node2D" parent="." unique_id=833928139]
 
 [node name="Hitbox" type="Area2D" parent="Model" unique_id=1930855279]
 collision_layer = 64
 collision_mask = 0
-
-[connection signal="area_entered" from="Model/Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_exited" from="Model/Hitbox" to="." method="_on_hitbox_area_exited"]
