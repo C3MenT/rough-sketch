@@ -10,7 +10,9 @@ points = PackedVector2Array(30, 9, -29, 15, -3, -31)
 [node name="Player" unique_id=1837744156 instance=ExtResource("1_ltfj7")]
 collision_layer = 4
 script = ExtResource("2_soln0")
-MAX_SPEED = 500.0
+MAX_SPEED = 400.0
+ACCELERATION = 100.0
+FRICTION = 20.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1197325771]
 shape = SubResource("ConvexPolygonShape2D_vl7qt")

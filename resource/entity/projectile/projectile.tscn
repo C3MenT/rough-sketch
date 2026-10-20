@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://c5r540ehlw2sv"]
 
 [ext_resource type="Script" uid="uid://dclk576sajrlq" path="res://resource/entity/projectile/projectile.gd" id="1_ukueo"]
+[ext_resource type="Script" uid="uid://dd7esiqdp01lb" path="res://resource/entity/projectile/projectile_stats.gd" id="2_2on8i"]
 
-[node name="Projectile" type="StaticBody2D" unique_id=762143362]
+[node name="Projectile" type="RigidBody2D" unique_id=1350978033 node_paths=PackedStringArray("stats", "soundPlayer")]
+collision_layer = 0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_ukueo")
+stats = NodePath("Stats")
+soundPlayer = NodePath("SoundPlayer")
+
+[node name="PhysicalCollider" type="CollisionShape2D" parent="." unique_id=276496779]
 
 [node name="Visual" type="Node2D" parent="." unique_id=1102890566]
 
@@ -14,3 +23,10 @@ script = ExtResource("1_ukueo")
 [node name="Hitbox" type="Area2D" parent="Model" unique_id=1930855279]
 collision_layer = 64
 collision_mask = 0
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=102415050]
+
+[node name="Stats" type="Node" parent="." unique_id=2030933030]
+script = ExtResource("2_2on8i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

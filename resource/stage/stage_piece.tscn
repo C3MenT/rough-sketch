@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ju8rhpgs86w"]
 
 [ext_resource type="Texture2D" uid="uid://bi7w0nf8jqaxs" path="res://resource/assets/sprite/stage/crumpled_lined_paper.jpg" id="1_n76a4"]
-[ext_resource type="PackedScene" uid="uid://lp837ophqhbk" path="res://resource/entity/mob/player/player.tscn" id="2_ipr76"]
 
 [node name="StagePiece" type="Node2D" unique_id=2088276741]
 
@@ -12,6 +11,3 @@ texture = ExtResource("1_n76a4")
 offset = Vector2(640, 360)
 
 [node name="Model" type="Node2D" parent="." unique_id=1243367797]
-
-[node name="Player" parent="Model" unique_id=1837744156 instance=ExtResource("2_ipr76")]
-position = Vector2(652, 647)

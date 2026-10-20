@@ -1,19 +1,38 @@
 [gd_scene format=3 uid="uid://b442l7grjf7v5"]
 
-[ext_resource type="PackedScene" uid="uid://ju8rhpgs86w" path="res://resource/stage/stage_piece.tscn" id="1_r6f3o"]
+[ext_resource type="Shader" uid="uid://byub43u4x3j0o" path="res://resource/assets/material/generic_scroll_shader.gdshader" id="1_1mkbo"]
+[ext_resource type="PackedScene" uid="uid://lp837ophqhbk" path="res://resource/entity/mob/player/player.tscn" id="2_1mkbo"]
+[ext_resource type="Texture2D" uid="uid://bi7w0nf8jqaxs" path="res://resource/assets/sprite/stage/crumpled_lined_paper.jpg" id="2_x4la6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lsomh"]
+shader = ExtResource("1_1mkbo")
+shader_parameter/dir = Vector2(0, -1)
+shader_parameter/scroll_weight = 1.0
+shader_parameter/ocillate = false
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vl7qt"]
 
 [node name="Stage" type="Node" unique_id=454290637]
 
+[node name="Visuals" type="Node2D" parent="." unique_id=736268997]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=645187292]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_lsomh")
+texture = ExtResource("2_x4la6")
+offset = Vector2(640, 360)
+
 [node name="Model" type="Node2D" parent="." unique_id=1956990051]
 
-[node name="StagePieces" type="Node2D" parent="Model" unique_id=1642802859]
+[node name="Entities" type="Node2D" parent="Model" unique_id=1642802859]
+editor_description = "Entity section of the model layer is centered in the canvas such that (0,0) in entity space is the center of the screen."
+position = Vector2(640, 360)
 
-[node name="StagePiece" parent="Model/StagePieces" unique_id=2088276741 instance=ExtResource("1_r6f3o")]
+[node name="Player" parent="Model/Entities" unique_id=1837744156 instance=ExtResource("2_1mkbo")]
+position = Vector2(0, 300)
 
 [node name="Boundary" type="StaticBody2D" parent="Model" unique_id=1664511909]
-collision_mask = 0
+collision_mask = 15
 
 [node name="Top" type="CollisionShape2D" parent="Model/Boundary" unique_id=1615425916]
 rotation = -3.1415927
