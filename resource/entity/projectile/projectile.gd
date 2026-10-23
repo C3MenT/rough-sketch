@@ -95,3 +95,8 @@ func _on_body_entered(body: Node) -> void:
 		# if a "world" collider is hit
 		if body.collision_layer == 1: 
 			queue_free() # delete self
+
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	queue_free()

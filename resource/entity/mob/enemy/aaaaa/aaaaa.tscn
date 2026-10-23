@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cbtpvedqqayjp"]
 
 [ext_resource type="PackedScene" uid="uid://con3bw1mujh71" path="res://resource/entity/mob/enemy/enemy.tscn" id="1_8jncc"]
+[ext_resource type="Script" uid="uid://dbky8ki3lvqny" path="res://resource/entity/mob/enemy/aaaaa/aaaaa.gd" id="2_l0wmn"]
 [ext_resource type="Texture2D" uid="uid://bf5k8kyk6jq3k" path="res://resource/assets/sprite/mob/enemy/Anemy.png" id="2_liste"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_l0wmn"]
@@ -10,7 +11,9 @@ points = PackedVector2Array(44, 56, -48, 58, 1, -68)
 radius = 41.0
 height = 132.0
 
-[node name="AAAAA" unique_id=1837744156 instance=ExtResource("1_8jncc")]
+[node name="AAAAA" unique_id=1837744156 node_paths=PackedStringArray("sprite") instance=ExtResource("1_8jncc")]
+script = ExtResource("2_l0wmn")
+sprite = NodePath("Visuals/Sprite2D")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1197325771]
 shape = SubResource("ConvexPolygonShape2D_l0wmn")
@@ -19,6 +22,12 @@ shape = SubResource("ConvexPolygonShape2D_l0wmn")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_liste")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Model/Hurtbox" parent_id_path=PackedInt32Array(200719921) index="0" unique_id=121195154]
+[node name="Hurtbox" parent="Model" parent_id_path=PackedInt32Array(1402979901) index="0" unique_id=200719921]
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Model/Hurtbox" index="0" unique_id=121195154]
 shape = SubResource("CapsuleShape2D_vl7qt")
 debug_color = Color(0.3416949, 0.6214218, 0, 0.41960785)
+
+[connection signal="area_entered" from="Model/Hurtbox" to="." method="_on_hurtbox_area_entered"]

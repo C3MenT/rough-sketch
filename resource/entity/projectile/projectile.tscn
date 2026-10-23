@@ -22,7 +22,7 @@ soundPlayer = NodePath("SoundPlayer")
 
 [node name="Hitbox" type="Area2D" parent="Model" unique_id=1930855279]
 collision_layer = 64
-collision_mask = 0
+collision_mask = 48
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=102415050]
 

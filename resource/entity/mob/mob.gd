@@ -9,6 +9,10 @@ Base Mob Class
 ### References
 ### ============================================================================
 
+## Mob Sprite
+@export var sprite : Sprite2D
+
+
 ## Prototypes of Projectiles the Mob can use
 @export var projectile_prototypes : Dictionary
 

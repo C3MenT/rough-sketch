@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://byub43u4x3j0o" path="res://resource/assets/material/generic_scroll_shader.gdshader" id="1_1mkbo"]
 [ext_resource type="PackedScene" uid="uid://lp837ophqhbk" path="res://resource/entity/mob/player/player.tscn" id="2_1mkbo"]
 [ext_resource type="Texture2D" uid="uid://bi7w0nf8jqaxs" path="res://resource/assets/sprite/stage/crumpled_lined_paper.jpg" id="2_x4la6"]
+[ext_resource type="PackedScene" uid="uid://cbtpvedqqayjp" path="res://resource/entity/mob/enemy/aaaaa/aaaaa.tscn" id="4_lsomh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lsomh"]
 shader = ExtResource("1_1mkbo")
@@ -28,8 +29,17 @@ offset = Vector2(640, 360)
 editor_description = "Entity section of the model layer is centered in the canvas such that (0,0) in entity space is the center of the screen."
 position = Vector2(640, 360)
 
-[node name="Player" parent="Model/Entities" unique_id=1837744156 instance=ExtResource("2_1mkbo")]
+[node name="AAAAA2" parent="Model/Entities" unique_id=1837744156 instance=ExtResource("4_lsomh")]
+position = Vector2(-351, -129)
+
+[node name="AAAAA3" parent="Model/Entities" unique_id=1259410618 instance=ExtResource("4_lsomh")]
+position = Vector2(364, -148)
+
+[node name="Player" parent="Model/Entities" unique_id=465325144 instance=ExtResource("2_1mkbo")]
 position = Vector2(0, 300)
+
+[node name="AAAAA" parent="Model/Entities" unique_id=414326783 instance=ExtResource("4_lsomh")]
+position = Vector2(17, -193)
 
 [node name="Boundary" type="StaticBody2D" parent="Model" unique_id=1664511909]
 collision_mask = 15

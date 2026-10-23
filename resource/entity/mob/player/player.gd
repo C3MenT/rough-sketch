@@ -45,8 +45,8 @@ func update_move(delta : float)->void:
 		velocity = lerp(velocity, Vector2.ZERO, FRICTION * delta)
 	# Use the built-in godot movement function for character body 2ds 
 	move_and_slide()
-	
-	
+
+
 
 func shoot()->void:
 	#var projectile_prototype = projectile_prototypes["VineRound"]
