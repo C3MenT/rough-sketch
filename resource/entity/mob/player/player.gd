@@ -20,7 +20,7 @@ Most driver functions should be overloaded to query input from the user.
 ### ============================================================================
 
 func _ready()->void:
-	pass
+	super._ready()
 
 
 

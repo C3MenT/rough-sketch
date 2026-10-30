@@ -89,7 +89,8 @@ shoot={
 2d_physics/layer_4="EnemyPhysical"
 2d_physics/layer_5="PlayerHurt"
 2d_physics/layer_6="EnemyHurt"
-2d_physics/layer_7="ProjectileHit"
+2d_physics/layer_7="ProjectileHitPlayer"
+2d_physics/layer_8="ProjectileHitEnemy"
 
 [physics]
 

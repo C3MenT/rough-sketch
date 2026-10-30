@@ -16,6 +16,8 @@ not the other way around.
 @export var stats : ProjectileBaseStats
 ## The audio stream player 2d
 @export var soundPlayer : AudioStreamPlayer2D
+## Hitbox or hitbox collection
+@export var hitbox : Area2D
 
 ### ============================================================================
 ### Members
@@ -79,13 +81,31 @@ func play_fire_sound(alternate_stream : AudioStream = null)->void:
 	soundPlayer.play()
 	soundPlayer.stream = og_stream
 	
+	
+	
+## Function sets the collision mask to search for players.
+## If toggle enabled, the mask for enemies is forced off also.
+func set_anti_players(toggle : bool = false)->void:
+	hitbox.set_collision_mask_value(5, true)
+	if toggle:
+		hitbox.set_collision_mask_value(6, false)
+		
+## Function sets the collision mask to search for enemies.
+## If toggle enabled, the mask for players is forced off also.
+func set_anti_enemies(toggle : bool = false)->void:
+	hitbox.set_collision_mask_value(6, true)
+	if toggle:
+		hitbox.set_collision_mask_value(5, false)
+
+
 
 ### ============================================================================
 ### Signal Callbacks
 ### ============================================================================
 
 
-## On detect collision with things in the mask layers
+
+## On detect physical collision with things in the mask layers
 ## Ensure that the signal is linked to this script,
 ## the contact_monitor flag is true, and
 ## max_contacts is at least 1
@@ -95,8 +115,10 @@ func _on_body_entered(body: Node) -> void:
 		# if a "world" collider is hit
 		if body.collision_layer == 1: 
 			queue_free() # delete self
+			
 
 
-
+## On detect hitbox collision with things in the mask layers
 func _on_hitbox_area_entered(area: Area2D) -> void:
+	# Delete self if successfully contacted something
 	queue_free()

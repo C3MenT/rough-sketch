@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://caydw83fn6vct"]
+
+[ext_resource type="Script" uid="uid://bpfq1s64hrjif" path="res://resource/entity/service/spawner/enemy_spawner/enemy_spawner.gd" id="1_q10r7"]
+[ext_resource type="Script" uid="uid://byplnd3kfdhxr" path="res://resource/entity/mob/enemy/enemy_library.gd" id="2_bp6tc"]
+
+[node name="EnemySpawner" type="Node2D" unique_id=815004015 node_paths=PackedStringArray("enemy_lib")]
+script = ExtResource("1_q10r7")
+enemy_lib = NodePath("EnemyLibrary")
+
+[node name="EnemyLibrary" type="Node" parent="." unique_id=2024306543]
+script = ExtResource("2_bp6tc")

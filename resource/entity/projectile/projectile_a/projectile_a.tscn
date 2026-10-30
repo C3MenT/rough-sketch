@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://s6inv5ujpinr"]
+
+[ext_resource type="PackedScene" uid="uid://c5r540ehlw2sv" path="res://resource/entity/projectile/projectile.tscn" id="1_n26fm"]
+[ext_resource type="Texture2D" uid="uid://b71jgd373nyst" path="res://resource/assets/sprite/projectile/a_round.png" id="2_objmq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46iph"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vl7qt"]
+radius = 20.09975
+
+[node name="A_Projectile" unique_id=1350978033 node_paths=PackedStringArray("hitbox") instance=ExtResource("1_n26fm")]
+hitbox = NodePath("Model/Hitbox")
+
+[node name="PhysicalCollider" parent="." index="0" unique_id=276496779]
+shape = SubResource("CircleShape2D_46iph")
+
+[node name="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1102890566) index="0" unique_id=1747953102]
+texture = ExtResource("2_objmq")
+
+[node name="Hitbox" parent="Model" parent_id_path=PackedInt32Array(833928139) index="0" unique_id=1930855279]
+collision_layer = 128
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Model/Hitbox" index="0" unique_id=1404660872]
+shape = SubResource("CircleShape2D_vl7qt")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="Stats" parent="." index="4" unique_id=2030933030]
+damage = 1
+max_speed = 200.0
+acceleration = 50.0

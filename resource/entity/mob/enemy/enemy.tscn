@@ -5,5 +5,3 @@
 
 [node name="Enemy" unique_id=1837744156 instance=ExtResource("1_8g141")]
 script = ExtResource("2_fggdo")
-
-[node name="Sprite2D" type="Sprite2D" parent="Visuals" parent_id_path=PackedInt32Array(729977157) index="0" unique_id=718268473]

@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dclk576sajrlq" path="res://resource/entity/projectile/projectile.gd" id="1_ukueo"]
 [ext_resource type="Script" uid="uid://dd7esiqdp01lb" path="res://resource/entity/projectile/projectile_stats.gd" id="2_2on8i"]
+[ext_resource type="Script" uid="uid://b88xn4rxrcevy" path="res://resource/entity/projectile/projectile_hitbox.gd" id="2_8ubbg"]
 
 [node name="Projectile" type="RigidBody2D" unique_id=1350978033 node_paths=PackedStringArray("stats", "soundPlayer")]
 collision_layer = 0
+collision_mask = 3
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
@@ -20,9 +22,11 @@ soundPlayer = NodePath("SoundPlayer")
 
 [node name="Model" type="Node2D" parent="." unique_id=833928139]
 
-[node name="Hitbox" type="Area2D" parent="Model" unique_id=1930855279]
+[node name="Hitbox" type="Area2D" parent="Model" unique_id=1930855279 node_paths=PackedStringArray("root_entity")]
 collision_layer = 64
 collision_mask = 48
+script = ExtResource("2_8ubbg")
+root_entity = NodePath("../..")
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=102415050]
 

@@ -4,17 +4,26 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n5odq"]
 
-[node name="Mob" type="CharacterBody2D" unique_id=1837744156]
+[node name="Mob" type="CharacterBody2D" unique_id=1837744156 node_paths=PackedStringArray("sprite", "timer")]
 collision_mask = 15
 script = ExtResource("1_v2vp8")
+sprite = NodePath("Visuals/Sprite2D")
+timer = NodePath("Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1197325771]
 shape = SubResource("CircleShape2D_n5odq")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=729977157]
 
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=678585002]
+
 [node name="Model" type="Node2D" parent="." unique_id=1402979901]
 
 [node name="Hurtbox" type="Area2D" parent="Model" unique_id=200719921]
 collision_layer = 0
 collision_mask = 0
+
+[node name="Timer" type="Timer" parent="." unique_id=235751149]
+
+[connection signal="area_entered" from="Model/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

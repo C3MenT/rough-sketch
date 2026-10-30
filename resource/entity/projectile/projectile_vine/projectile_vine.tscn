@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqv71jqtjr5va"]
 
 [ext_resource type="PackedScene" uid="uid://c5r540ehlw2sv" path="res://resource/entity/projectile/projectile.tscn" id="1_6pea6"]
+[ext_resource type="Script" uid="uid://b8a6bu3ce30p6" path="res://resource/entity/projectile/projectile_vine/projectile_vine.gd" id="2_6ov86"]
 [ext_resource type="Texture2D" uid="uid://80j6w6mb3nvy" path="res://resource/assets/sprite/projectile/vround.png" id="2_eqfsi"]
 [ext_resource type="AudioStream" uid="uid://dqihrt7al2wwe" path="res://resource/assets/sound/vine-boom.mp3" id="3_eqfsi"]
 
@@ -13,7 +14,7 @@ radius = 37.0
 height = 96.0
 
 [node name="VineProjectile" unique_id=350827401 instance=ExtResource("1_6pea6")]
-collision_mask = 3
+script = ExtResource("2_6ov86")
 
 [node name="PhysicalCollider" parent="." index="0" unique_id=276496779]
 shape = SubResource("CapsuleShape2D_2on8i")
@@ -22,7 +23,10 @@ shape = SubResource("CapsuleShape2D_2on8i")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_eqfsi")
 
-[node name="Shape1" type="CollisionShape2D" parent="Model/Hitbox" parent_id_path=PackedInt32Array(1930855279) index="0" unique_id=921719036]
+[node name="Hitbox" parent="Model" parent_id_path=PackedInt32Array(833928139) index="0" unique_id=1930855279]
+collision_mask = 32
+
+[node name="Shape1" type="CollisionShape2D" parent="Model/Hitbox" index="0" unique_id=921719036]
 shape = SubResource("CapsuleShape2D_eqfsi")
 debug_color = Color(1, 0, 0, 0.41960785)
 
@@ -30,7 +34,7 @@ debug_color = Color(1, 0, 0, 0.41960785)
 stream = ExtResource("3_eqfsi")
 
 [node name="Stats" parent="." index="4" unique_id=2030933030]
-damage = 10
+damage = 2
 max_speed = 300.0
 acceleration = 20.0
 
